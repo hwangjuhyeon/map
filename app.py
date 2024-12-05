@@ -19,12 +19,16 @@ def kakao_map(api_key):
     """.format(api_key), unsafe_allow_html=True)
 
 def main():
-    st.title("Kakao 지도 API - Streamlit 앱")
-    kakao_api_key = st.secrets["KAKAO_API_KEY"]  # secrets.toml에서 API 키 가져오기
+    st.title("Kakao 지도 API - 사용자 입력 버전")
+    
+    # 사용자로부터 API 키 입력받기
+    kakao_api_key = st.text_input("Kakao API 키를 입력하세요")
+    
     if kakao_api_key:
+        st.success("API 키가 입력되었습니다. 지도를 생성합니다.")
         kakao_map(kakao_api_key)
     else:
-        st.error("Kakao API 키가 필요합니다!")
+        st.warning("API 키를 입력해야 지도가 표시됩니다.")
 
 if __name__ == "__main__":
     main()
