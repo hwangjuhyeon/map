@@ -37,4 +37,3 @@ def render_kakao_map():
 # Streamlit 앱
 st.title("Kakao Map Integration")
 st.components.v1.html(render_kakao_map(), height=500)
-
