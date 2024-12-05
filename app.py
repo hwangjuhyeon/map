@@ -4,7 +4,7 @@ from itertools import permutations
 import numpy as np
 
 # Google Maps API 키
-API_KEY = "YOUR_GOOGLE_MAPS_API_KEY"
+API_KEY = "AIzaSyBwk_avwCbUMdtx_XzII92V_erg1YzJD6Q"
 gmaps = googlemaps.Client(key=API_KEY)
 
 # Streamlit UI
