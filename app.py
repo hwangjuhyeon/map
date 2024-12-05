@@ -4,6 +4,8 @@ from itertools import permutations
 import folium
 from streamlit_folium import st_folium
 
+pip install -U googlemaps
+
 # Google Maps API 키 설정
 API_KEY = "AIzaSyBwk_avwCbUMdtx_XzII92V_erg1YzJD6Q"
 gmaps = googlemaps.Client(key=API_KEY)
