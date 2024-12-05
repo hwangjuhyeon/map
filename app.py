@@ -11,6 +11,7 @@ def render_kakao_map():
     <html>
     <head>
         <meta charset="utf-8">
+        <title>Kakao Map</title>
         <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey={KAKAO_API_KEY}"></script>
         <style>
             #map {{
@@ -22,9 +23,10 @@ def render_kakao_map():
     <body>
         <div id="map"></div>
         <script>
-            var mapContainer = document.getElementById('map');
+            // Kakao 지도 초기화
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
             var mapOption = {{
-                center: new kakao.maps.LatLng(37.5665, 126.9780), // 중심좌표
+                center: new kakao.maps.LatLng(37.5665, 126.9780), // 서울 중심 좌표
                 level: 3 // 확대 레벨
             }};
             var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 생성
@@ -33,6 +35,7 @@ def render_kakao_map():
     </html>
     """
     return kakao_map_html
+
 
 # Streamlit 앱
 st.title("Kakao Map Integration")
