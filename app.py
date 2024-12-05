@@ -6,3 +6,6 @@ st.title("동선 프로그램")
 KAKAO_API_KEY = "dd5a7e1db353ceee0ef645b2cb146dac"
 
 st.components.v1.html(render_kakao_map(), height=500)
+
+kakao_map_html = render_kakao_map()
+st.write(kakao_map_html)
