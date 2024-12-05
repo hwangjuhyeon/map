@@ -1,12 +1,11 @@
 import streamlit as st
+from streamlit.components.v1 import html
 
 st.title("동선 프로그램")
 
-from streamlit.components.v1 import html
-
 # Kakao 지도 렌더링 함수
 def kakao_map(api_key):
-    # JavaScript로 Kakao 지도를 생성하는 HTML 코드
+    # HTML 코드와 JavaScript 코드
     map_html = f"""
     <!DOCTYPE html>
     <html>
@@ -33,8 +32,8 @@ def kakao_map(api_key):
     </body>
     </html>
     """
-    # Streamlit에서 HTML 삽입
-    html(map_html, height=450)
+    # Streamlit에서 HTML을 삽입
+    html(map_html, height=450, width=700)
 
 def main():
     st.title("Kakao 지도 API - Streamlit 연동")
@@ -47,6 +46,9 @@ def main():
         kakao_map(kakao_api_key)  # 입력된 API 키로 지도 생성
     else:
         st.warning("API 키를 입력해야 지도가 표시됩니다.")
+
+if __name__ == "__main__":
+    main()
 
 if __name__ == "__main__":
     main()
