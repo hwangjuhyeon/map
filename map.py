@@ -1,9 +1,8 @@
 # 터미널에서 실행: streamlit run app.py
 import streamlit as st
 from openai import OpenAI
-import json
 
-client = OpenAI(api_key="sk-")
+client = OpenAI(api_key)
 
 response = client.chat.completions.create(
  model="gpt-4o-mini",
