@@ -8,12 +8,6 @@ st.title("부산 여행 동선 최적화")
 api_key = "sk-"
 client = OpenAI(api_key=api_key)
 
-# OpenAI API 키 입력받기
-api_key = st.text_input("OpenAI API 키를 입력하세요:", type="password")
-if api_key:
-    openai.api_key = api_key
-    st.success("API 키가 설정되었습니다.")
-
 # 관광지 입력받기
 st.header("부산 관광지 목록")
 spots = st.text_area("방문할 관광지를 한 줄에 하나씩 입력하세요 (2개 이상):")
