@@ -1,8 +1,9 @@
 import streamlit as st
-import openai
+import openai import OpenAI
 
 # OpenAI API 키 설정
-openai.api_key = "your-api-key-here"
+api_key = st.text_input("OpenAI API Key", type='password')
+client = OpenAI(api_key=api_key)
 
 # Streamlit 앱 제목
 st.title("부산 관광 동선 추천")
@@ -22,8 +23,8 @@ if st.button("동선 추천받기"):
         with st.spinner("동선을 생성 중입니다..."):
             try:
                 # OpenAI API 호출
-                response = openai.ChatCompletion.create(
-                    model="gpt-4",
+                response = client.chat.completions.create(
+                    model="gpt-4o-mini",
                     messages=[
                         {
                             "role": "system",
