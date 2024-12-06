@@ -27,7 +27,7 @@ else:
                     "동선은 방문 순서와 간단한 설명으로 제공해주세요."
                 )
 
-                response = openai.ChatCompletion.create(
+                response = client.chat.completions.create(
                     model="gpt-4o-mini",
                     messages=[
                         {"role": "system", "content": "너는 여행 계획 전문가야."},
