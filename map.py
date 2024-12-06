@@ -1,5 +1,5 @@
 import streamlit as st
-import openai
+import openai import OpenAI
 
 # Streamlit 앱 제목
 st.title("부산 여행 동선 최적화")
