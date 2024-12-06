@@ -1,6 +1,6 @@
 import streamlit as st
 import openai import OpenAI
-
+ 
 # OpenAI API 키 설정
 api_key = st.text_input("OpenAI API Key", type='password')
 client = OpenAI(api_key=api_key)
