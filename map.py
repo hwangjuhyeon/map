@@ -37,8 +37,8 @@ if st.button("동선 추천받기"):
                     ]
                 )
                 # 응답 처리
-                plan = response['choices'][0]['message']['content']
+                answer = response.choices[0].message.content
                 st.success("동선 추천 결과:")
-                st.markdown(plan)
+                st.markdown(answer)
             except Exception as e:
                 st.error(f"오류가 발생했습니다: {e}")
