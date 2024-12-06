@@ -1,12 +1,14 @@
 import streamlit as st
-import openai import OpenAI
+import openai
 
 # Streamlit 앱 제목
 st.title("부산 여행 동선 최적화")
 
-# OpenAI API 클라이언트 초기화
-api_key = "sk-"
-client = OpenAI(api_key=api_key)
+# OpenAI API 키 입력받기
+api_key = st.text_input("OpenAI API 키를 입력하세요:", type="password")
+if api_key:
+    openai.api_key = api_key
+    st.success("API 키가 설정되었습니다.")
 
 # 관광지 입력받기
 st.header("부산 관광지 목록")
@@ -25,8 +27,8 @@ else:
                     "동선은 방문 순서와 간단한 설명으로 제공해주세요."
                 )
 
-                response = client.chat.completions.create(
-                    model="gpt-4o-mini",
+                response = openai.ChatCompletion.create(
+                    model="gpt-4",
                     messages=[
                         {"role": "system", "content": "너는 여행 계획 전문가야."},
                         {"role": "user", "content": prompt},
