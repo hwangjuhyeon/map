@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-from itertools import permutations
 
 # Streamlit 앱 제목
 st.title("부산 여행 동선 최적화")
@@ -28,7 +27,7 @@ else:
                     "동선은 방문 순서와 간단한 설명으로 제공해주세요."
                 )
 
-                response = openai.ChatCompletion.create(
+                response = openai.Chat.create(
                     model="gpt-4",
                     messages=[
                         {"role": "system", "content": "너는 여행 계획 전문가야."},
@@ -43,4 +42,3 @@ else:
                 st.markdown(f"**최적화된 동선:**\n\n{plan}")
             except Exception as e:
                 st.error(f"오류가 발생했습니다: {e}")
-
