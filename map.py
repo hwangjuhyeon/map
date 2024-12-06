@@ -10,6 +10,10 @@ if api_key:
     openai.api_key = api_key
     st.success("API 키가 설정되었습니다.")
 
+# OpenAI API 클라이언트 초기화
+api_key = "sk-"
+client = OpenAI(api_key=api_key)
+
 # 관광지 입력받기
 st.header("부산 관광지 목록")
 spots = st.text_area("방문할 관광지를 한 줄에 하나씩 입력하세요 (2개 이상):")
