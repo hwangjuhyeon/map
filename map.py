@@ -7,63 +7,14 @@ import json
 st.input=api_key = "sk-"
 client = OpenAI(api_key=api_key)
 
-# Attraction 클래스 정의
-class Attraction:
-    def __init__(self, name, category, address, phone, hours, description):
-        self.name = name
-        self.category = category
-        self.address = address
-        self.phone = phone
-        self.hours = hours
-        self.description = description
-
-    def __repr__(self):
-        return (f"Attraction(name='{self.name}', "
-                f"category='{self.category}', address='{self.address}', "
-                f"phone='{self.phone}', hours='{self.hours}', "
-                f"description='{self.description}')")
-
-    def to_dict(self):
-        return {
-            "name": self.name,
-            "category": self.category,
-            "address": self.address,
-            "phone": self.phone,
-            "hours": self.hours,
-            "description": self.description,
-        }
-
-# 명소 추천 함수
+# 동선 최적화 함수
 def get_related_Attractions(query, Attractions, client, model="gpt-4o-mini"):
     Attraction_data = [a.to_dict() for a in Attractions]
 
     messages = [
-        {"role": "system", "content": "You are a helpful assistant for recommending attractions."},
+        {"role": "system", "content": "You are a helpful assistant for optimizing the flow of traffic."},
         {"role": "user", "content": f"""
-        아래는 명소 데이터입니다. 사용자가 '{query}'에 관련된 명소를 3개 추천해주세요.
-        추천 결과는 JSON 형식으로 반환하며, 각 명소에는 다음 필드가 있어야 합니다:
-        - name (명소 이름)
-        - category (명소 종류)
-        - address (주소)
-        - phone (전화번호)
-        - hours (운영 시간)
-        - description (설명)
-
-        JSON 형식으로만 답변해주세요. 예:
-        [
-            {{
-                "name": "명1",
-                "category": "역사",
-                "address": "주소1",
-                "phone": "전화번호1",
-                "hours": "운영 시간1",
-                "description": "설명1"
-            }},
-            ...
-        ]
-
-        명소 데이터:
-        {Attraction_data}
+        아래는 장소 데이터입니다. 사용자가 입력한'{query}'에 대해서 최적화된 동선을 짜주세요.
         """}
     ]
 
