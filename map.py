@@ -42,4 +42,3 @@ if st.button("동선 추천받기"):
                 st.markdown(answer)
             except Exception as e:
                 st.error(f"오류가 발생했습니다: {e}")
-
