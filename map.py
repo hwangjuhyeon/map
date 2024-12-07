@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
  
 # OpenAI API 키 설정
-api_key = st.text_input("OpenAI API Key", type='password')
+api_key = "sk-"
 client = OpenAI(api_key=api_key)
 
 # Streamlit 앱 제목
